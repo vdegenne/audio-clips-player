@@ -27,15 +27,15 @@ jobs:
         git config --global user.name "vdegenne"
         git config --global user.email "vdegenne@gmail.com"
     ## Fetch remote information (since github actions is local)
-    - run: git fetch origin
-    - run: git branch -r
+    #- run: git fetch origin
+    #- run: git branch -r
     ## Checkout the builds branch
-    - run: git checkout -b builds origin/builds
+    #- run: git checkout -b builds origin/builds
     # - run: ls -l
     # - run: ls -l docs
     # - run: ls -l docs/assets
     ## Bring the master version before building
-    - run: git merge -X theirs master --allow-unrelated-histories
+    #- run: git merge -X theirs master --allow-unrelated-histories
     # - run: git pull origin master 
     - run: npm run build --if-present
     - run: git status
@@ -43,4 +43,4 @@ jobs:
       run: |
         git add .
         git commit -m "builds"
-        git push -u origin builds
+        git push

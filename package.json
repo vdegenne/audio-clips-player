@@ -1,0 +1,42 @@
+{
+  "name": "audio-clips-player",
+  "type": "module",
+  "scripts": {
+    "serve": "wireit",
+    "build": "wireit"
+  },
+  "wireit": {
+    "destroy:assets": {
+      "command": "rimraf docs/assets/*"
+    },
+    "build:map": {
+      "command": "node scripts/build-map.js"
+    },
+    "build": {
+      "dependencies": [
+        "destroy:assets",
+        "build:map"
+      ],
+      "command": "vite build"
+    },
+    "serve": {
+      "dependencies": [
+        "build:map"
+      ],
+      "command": "vite --host"
+    }
+  },
+  "devDependencies": {
+    "@material/mwc-button": "^0.27.0",
+    "@material/mwc-checkbox": "^0.27.0",
+    "@material/mwc-formfield": "^0.27.0",
+    "@material/mwc-icon": "^0.27.0",
+    "@material/mwc-icon-button": "^0.27.0",
+    "gamecontroller.js": "^1.5.0",
+    "lit": "^2.6.1",
+    "prettier": "^2.8.4",
+    "rimraf": "^4.3.1",
+    "vite": "^4.1.4",
+    "wireit": "^0.9.5"
+  }
+}

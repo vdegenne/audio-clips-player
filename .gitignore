@@ -1,5 +1,3 @@
 node_modules
-docs/*
-!docs/files
 src/map.json
 .wireit
